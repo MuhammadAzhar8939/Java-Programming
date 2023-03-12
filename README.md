@@ -1,6 +1,6 @@
 
 # Java Programming Basic
-This folder contain 180+ basic java proggram, these programs are taken from IT-Series Book of C++.
+This folder contain 180+ basic java program, these programs are taken from IT-Series Book of C++.
 
 # What concepts are covered in these program?
 these program cover the concept of 
