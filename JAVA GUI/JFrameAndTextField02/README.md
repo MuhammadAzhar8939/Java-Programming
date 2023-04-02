@@ -2,6 +2,8 @@
 
 take two JtextField and one button , take input from user using getText() method,
 convert input into Integer and Add Both inputs,
+if there is any non numeric value throw exception 
+if second number is zero and user waant to divide then also throw exception
 then convert back output from integer to string,
 and the use JOptionPane messageDialogeBox to show the Output to User,
 implement using JFrame

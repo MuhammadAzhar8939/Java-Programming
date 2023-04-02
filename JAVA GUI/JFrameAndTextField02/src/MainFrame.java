@@ -89,22 +89,28 @@ public class MainFrame extends JFrame implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // grabing values from textfields
-        String num1 = textField1.getText();
-        String num2 = textField2.getText();
-        // just converting string to integer
-        int n1 = Integer.valueOf(num1);
-        int n2 = Integer.valueOf(num2);
-
-        if (e.getSource() == addBtn) {
-            output(n1, n2, '+');
-        } else if (e.getSource() == subBtn) {
-            output(n1, n2, '-');
-        } else if (e.getSource() == mulBtn) {
-            output(n1, n2, '*');
-        } else if (e.getSource() == divBtn) {
-            output(n1, n2, '/');
+        try {
+            // grabing values from textfields
+            String num1 = textField1.getText();
+            String num2 = textField2.getText();
+            // just converting string to integer
+            int n1 = Integer.parseInt(num1);// we use parseInt() method because it will through number format exception
+                                            // in case of error
+            int n2 = Integer.parseInt(num2);
+            if (e.getSource() == addBtn) {
+                output(n1, n2, '+');
+            } else if (e.getSource() == subBtn) {
+                output(n1, n2, '-');
+            } else if (e.getSource() == mulBtn) {
+                output(n1, n2, '*');
+            } else if (e.getSource() == divBtn) {
+                output(n1, n2, '/');
+            }
+        } catch (NumberFormatException ex) {
+            JOptionPane.showMessageDialog(this, "Please Enter Numeric Value!", "ERROR",
+                    JOptionPane.ERROR_MESSAGE);
         }
+
     }
 
     public void output(int n1, int n2, Character operator) {
@@ -117,12 +123,18 @@ public class MainFrame extends JFrame implements ActionListener {
                 n3 = n1 - n2;
                 break;
             case '/':
-                if (n2 == 0) {
+                try {
+                    if (n2 == 0) {
+                        n1 = n2 = n3 = 0;//because i have use single output message box below which will appear for all
+                        throw new NumberFormatException();
+                    } else {
+                        n3 = n1 / n2;
+                    }
+                } catch (Exception e) {
                     JOptionPane.showMessageDialog(this, "Cannot Divide by Zero", "Output",
                             JOptionPane.ERROR_MESSAGE);
-                } else {
-                    n3 = n1 / n2;
                 }
+
                 break;
             case '*':
                 n3 = n1 * n2;
