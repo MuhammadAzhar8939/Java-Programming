@@ -1,5 +1,4 @@
 import javax.swing.*;
-import javax.swing.border.LineBorder;
 
 import java.awt.*;
 import javax.sound.sampled.*;
@@ -55,7 +54,7 @@ public class MusicPlayerApp extends JFrame {
 
         trackLabel = new JLabel("Currently Playing: ");
         trackLabel.setForeground(Color.WHITE);
-        filePathLabel = new JLabel("Current File Path: ");
+        filePathLabel = new JLabel("Current File : ");
         filePathLabel.setForeground(Color.WHITE);
 
         playButton.setBounds(100, 100, 120, 30);
@@ -110,9 +109,11 @@ public class MusicPlayerApp extends JFrame {
                         baseFormat.getSampleRate(), 16, 1, 2, baseFormat.getSampleRate(), false);
 
                 AudioInputStream convertedStream = AudioSystem.getAudioInputStream(targetFormat, audioStream);
-
-                clip.open(convertedStream);
-                clip.start();
+                if (!clip.isOpen()) {
+                    
+                    clip.open(convertedStream);
+                    clip.start();
+                }
                 updateTrackLabel("Playing...");
             } catch (LineUnavailableException | IOException | UnsupportedAudioFileException ex) {
                 ex.printStackTrace();
@@ -160,7 +161,7 @@ public class MusicPlayerApp extends JFrame {
             File selectedFile = fileChooser.getSelectedFile();
             audioFilePath = selectedFile.getAbsolutePath();
             
-            filePathLabel.setText("Current File Path: " + selectedFile.getName());
+            filePathLabel.setText("Current File : " + selectedFile.getName());
         }
     }
 
