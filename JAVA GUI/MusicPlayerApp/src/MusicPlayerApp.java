@@ -1,4 +1,6 @@
 import javax.swing.*;
+import javax.swing.border.LineBorder;
+
 import java.awt.*;
 import javax.sound.sampled.*;
 import java.io.File;
@@ -18,23 +20,50 @@ public class MusicPlayerApp extends JFrame {
     private String audioFilePath;
 
     public MusicPlayerApp() {
+        Color buttonColor = Color.decode("#041C32");
         setTitle("Music Player");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLayout(null); // Use custom layout (null layout)
+        this.getContentPane().setBackground(Color.decode("#04293A"));
 
         playButton = new JButton("Play");
-        pauseButton = new JButton("Pause");
-        stopButton = new JButton("Stop");
-        chooseFileButton = new JButton("Choose File");
-        trackLabel = new JLabel("Currently Playing: ");
-        filePathLabel = new JLabel("Current File Path: ");
 
-        playButton.setBounds(50, 50, 100, 30);
-        pauseButton.setBounds(50, 100, 100, 30);
-        stopButton.setBounds(50, 150, 100, 30);
-        chooseFileButton.setBounds(50, 200, 100, 30);
-        trackLabel.setBounds(50, 250, 200, 30);
-        filePathLabel.setBounds(50, 10, 400, 30);
+        playButton.setForeground(Color.WHITE);
+        playButton.setBackground(buttonColor);
+        playButton.setFocusPainted(false);
+        playButton.setOpaque(true);
+        playButton.setBorderPainted(false);
+        pauseButton = new JButton("Pause");
+        pauseButton.setForeground(Color.WHITE);
+        pauseButton.setBackground(buttonColor);
+        pauseButton.setFocusPainted(false);
+        pauseButton.setOpaque(true);
+        pauseButton.setBorderPainted(false);
+        stopButton = new JButton("Stop");
+        stopButton.setForeground(Color.WHITE);
+        stopButton.setBackground(buttonColor);
+        stopButton.setFocusPainted(false);
+        stopButton.setOpaque(true);
+        stopButton.setBorderPainted(false);
+
+        chooseFileButton = new JButton("Choose File");
+        chooseFileButton.setForeground(Color.WHITE);
+        chooseFileButton.setBackground(buttonColor);
+        chooseFileButton.setFocusPainted(false);
+        chooseFileButton.setOpaque(true);
+        chooseFileButton.setBorderPainted(false);
+
+        trackLabel = new JLabel("Currently Playing: ");
+        trackLabel.setForeground(Color.WHITE);
+        filePathLabel = new JLabel("Current File Path: ");
+        filePathLabel.setForeground(Color.WHITE);
+
+        playButton.setBounds(100, 100, 120, 30);
+        pauseButton.setBounds(100, 150, 120, 30);
+        stopButton.setBounds(100, 200, 120, 30);
+        chooseFileButton.setBounds(100, 250, 120, 30);
+        trackLabel.setBounds(100, 300, 200, 30);
+        filePathLabel.setBounds(100, 30, 400, 30);
 
         add(playButton);
         add(pauseButton);
@@ -42,8 +71,7 @@ public class MusicPlayerApp extends JFrame {
         add(chooseFileButton);
         add(trackLabel);
         add(filePathLabel);
-
-        setSize(300, 350);
+        setSize(500, 500);
         setVisible(true);
 
         // Initialize the clip
@@ -131,7 +159,8 @@ public class MusicPlayerApp extends JFrame {
         if (result == JFileChooser.APPROVE_OPTION) {
             File selectedFile = fileChooser.getSelectedFile();
             audioFilePath = selectedFile.getAbsolutePath();
-            filePathLabel.setText("Current File Path: " + audioFilePath);
+            
+            filePathLabel.setText("Current File Path: " + selectedFile.getName());
         }
     }
 
