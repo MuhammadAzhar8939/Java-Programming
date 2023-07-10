@@ -1,0 +1,20 @@
+Module A (User Interface):
+
+Submodule A1: Design and layout of the user interface components (buttons, labels, etc.). Completed
+Submodule A2: Handle user interactions and events (button clicks, etc.). Completed
+Submodule A3: Update the UI to display the currently playing track. Completed
+Module B (Playback Control):
+
+Submodule B1: Initialize the Java Sound API and Clip object for audio playback. Completed
+Submodule B2: Implement the play method to start audio playback. Completed
+Submodule B3: Implement the pause method to pause audio playback. Completed
+Submodule B4: Implement the stop method to stop audio playback. Completed
+Module C (Button Functionality):
+
+Submodule C1: Bind the play button to the play method in Module B. Completed
+Submodule C2: Bind the pause button to the pause method in Module B. Completed
+Submodule C3: Bind the stop button to the stop method in Module B. Completed
+Module D (File Selection):
+
+Submodule D1: Implement the file selection using JFileChooser. Completed
+Submodule D2: Load the selected audio file into the Clip object for playback. Completed
