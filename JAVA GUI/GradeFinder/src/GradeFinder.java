@@ -16,7 +16,6 @@ public class GradeFinder extends JFrame implements ActionListener {
     private JLabel resulJLabel;
 
     GradeFinder() {
-
         // label just for title purpose
         JLabel label = new JLabel("Grade Finder");
         label.setBounds(200, 10, 100, 30);
@@ -88,7 +87,6 @@ public class GradeFinder extends JFrame implements ActionListener {
 
             }
         }
-        throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
     }
 
     // main
