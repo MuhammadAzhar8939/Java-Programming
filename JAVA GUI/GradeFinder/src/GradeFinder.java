@@ -32,7 +32,7 @@ public class GradeFinder extends JFrame implements ActionListener {
         // textfield for subject 1 marks input
         firstSubjectMarks = new JFormattedTextField(new NumberFormatter());
         firstSubjectMarks.setBounds(200, 100, 200, 30);
-        
+
         this.add(firstSubjectMarks);
         // textfield for subject 2 marks input
         secondSubjectMarks = new JFormattedTextField(new NumberFormatter());
@@ -57,17 +57,13 @@ public class GradeFinder extends JFrame implements ActionListener {
         this.setVisible(true);
     }
 
-    public static void main(String[] args) throws Exception {
-        new GradeFinder();
-    }
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (firstSubjectMarks.getText().isEmpty() || secondSubjectMarks.getText().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Empty textFields ");
-         
+
         } else {
-               int marks1 = Integer.parseInt(firstSubjectMarks.getText());
+            int marks1 = Integer.parseInt(firstSubjectMarks.getText());
             int marks2 = Integer.parseInt(secondSubjectMarks.getText());
             double average = (marks1 + marks2) / 2;
             if (average >= 90) {
@@ -93,5 +89,10 @@ public class GradeFinder extends JFrame implements ActionListener {
             }
         }
         throw new UnsupportedOperationException("Unimplemented method 'actionPerformed'");
+    }
+
+    // main
+    public static void main(String[] args) throws Exception {
+        new GradeFinder();
     }
 }
